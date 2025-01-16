@@ -1,0 +1,28 @@
+<h1 class="text-3xl">Pokemons list!</h1>
+<h2 class="text-xl">
+  Current Page {{currentPage()}}
+</h2>
+
+<hr class="my-2">
+
+<!-- TODO: pokemon list -->
+
+@if (pokemons()) {
+  <pokemon-list [pokemons]="pokemons()">
+  </pokemon-list>
+}@else{
+  <pokemon-list-skeleton></pokemon-list-skeleton>
+}
+
+<!-- TODO: pokemon list skeleton -->
+<!-- TODO: cargar siguientes y anteriores -->
+
+
+<div class="flex justify-between">
+  <button class="mt-2" (click)="loadPokemons(-1)">
+    Anteriores
+  </button>
+  <button class="mt-2" (click)="loadPokemons(+1)">
+    Siguientes
+  </button>
+</div>
