@@ -7,10 +7,10 @@
 
 <!-- TODO: pokemon list -->
 
-@if (pokemons()) {
+@if (pokemons().length>0) {
   <pokemon-list [pokemons]="pokemons()">
   </pokemon-list>
-}@else{
+}@else {
   <pokemon-list-skeleton></pokemon-list-skeleton>
 }
 
@@ -19,10 +19,10 @@
 
 
 <div class="flex justify-between">
-  <button class="mt-2" (click)="loadPokemons(-1)">
+  <button class="mt-2" [routerLink]="['/pokemons/page', currentPage()! - 1]" [disabled]="currentPage()===1" >
     Anteriores
   </button>
-  <button class="mt-2" (click)="loadPokemons(+1)">
+  <button class="mt-2" [routerLink]="['/pokemons/page', currentPage()! + 1]">
     Siguientes
   </button>
 </div>
